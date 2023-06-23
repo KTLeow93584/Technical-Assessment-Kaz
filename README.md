@@ -33,6 +33,13 @@ File Path:
 File Path:
 + `Assets/Scripts/Cube/02_Reworked/Cube.cs`
 
+4. More exposed variables in the inspector for the designer's customizability control. With the inclusion of header and tooltip support.
+
+Related Asset Files:
++ `Assets/Scripts/Cube/02_Reworked/Cube.cs`
++ `Assets/Scripts/Cube/02_Reworked/CubeMovement.cs`
++ `Assets/Scripts/Cube/02_Reworked/CubeSpawner.cs`
+
 ## Performance Benchmarks
 
 1. On-Demand Creation Benchmark
