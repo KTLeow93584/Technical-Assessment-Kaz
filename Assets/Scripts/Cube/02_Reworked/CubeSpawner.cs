@@ -33,6 +33,15 @@ namespace Kurechii.Assessment.LeowKeanTat.Modified
 		// =============================================
 		#region Unity Callbacks
 
+		void Awake()
+		{
+			if (!viewCamera)
+				viewCamera = Camera.main;
+
+			if (!poolScript)
+				poolScript = GetComponent<ObjectPool>();
+		}
+
 		void OnEnable()
 		{
 			poolScript.Initialize();
@@ -59,17 +68,17 @@ namespace Kurechii.Assessment.LeowKeanTat.Modified
 		{
 			// =============================
 			// Diagnostics Begin - Spawn via Object Pooling.
-			if (DiagnosticsManager.instance != null)
-				DiagnosticsManager.instance.StartDiagnostics();
+			//if (DiagnosticsManager.instance != null)
+				//DiagnosticsManager.instance.StartDiagnostics();
 			// =============================
 			poolScript.SpawnObject(GetRandomPosition(), GetRandomRotation(), GetRandomSize());
 			// =============================
 			// Diagnostics End.
-			if (DiagnosticsManager.instance != null)
-			{
-				DiagnosticsManager.instance.StopDiagnostics();
-				DiagnosticsManager.instance.PrintDiagnosticResultsTicks("[Reworked] Game Ticks Taken to Spawn Cube: ");
-			}
+			//if (DiagnosticsManager.instance != null)
+			//{
+				//DiagnosticsManager.instance.StopDiagnostics();
+				//DiagnosticsManager.instance.PrintDiagnosticResultsTicks("[Reworked] Game Ticks Taken to Spawn Cube: ");
+			//}
 			// =============================
 		}
 
