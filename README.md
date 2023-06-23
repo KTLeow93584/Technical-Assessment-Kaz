@@ -1,6 +1,6 @@
 # Kurechii Technical Assessment
-Evaluator: Mr Shin Hean Kung, Kurechii Technical Director.
-Candidate: Mr Leow Kean Tat aka Kaz.
+- Evaluator: Mr Shin Hean Kung, Kurechii Technical Director.
+- Candidate: Mr Leow Kean Tat aka Kaz.
 
 ## Assessment Objectives
 Note: Taken from the original assessment document.
@@ -51,4 +51,4 @@ It has been found that both have its **pros and cons**. **Object Pooling** deman
 
 ## References
 - ReadOnly Attribute
-https://www.patrykgalach.com/2020/01/20/readonly-attribute-in-unity-editor/
+[https://www.patrykgalach.com/2020/01/20/readonly-attribute-in-unity-editor/]
