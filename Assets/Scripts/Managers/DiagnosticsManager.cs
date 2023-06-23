@@ -6,75 +6,75 @@ using Debug = UnityEngine.Debug;
 
 namespace Kurechii.Assessment.LeowKeanTat
 {
-    public class DiagnosticsManager : MonoBehaviour
-    {
-        // =============================================
-        #region Debug Variables (Read Only)
+	public class DiagnosticsManager : MonoBehaviour
+	{
+		// =============================================
+		#region Debug Variables (Read Only)
 
-        [Header("Debug Properties")]
-        public static DiagnosticsManager instance = null;
-        Stopwatch stopWatch = null;
+		[Header("Debug Properties")]
+		public static DiagnosticsManager instance = null;
+		Stopwatch stopWatch = null;
 
-        #endregion
-        // =============================================
-        #region Unity Callbacks
+		#endregion
+		// =============================================
+		#region Unity Callbacks
 
-        void Awake()
-        {
-            if (!instance)
-                instance = this;
-            else
-                Destroy(gameObject);
+		void Awake()
+		{
+			if (!instance)
+				instance = this;
+			else
+				Destroy(gameObject);
 
-            DontDestroyOnLoad(gameObject);
-        }
+			DontDestroyOnLoad(gameObject);
+		}
 
 		#endregion
 		// =============================================
 		#region Helper Functions (Private/Protected) - Local or Inherited Class Uses Only
 
 		public void StartDiagnostics()
-        {
-            stopWatch = new Stopwatch();
-            stopWatch.Start();
-        }
+		{
+			stopWatch = new Stopwatch();
+			stopWatch.Start();
+		}
 
-        public void StopDiagnostics()
-        {
-            stopWatch.Stop();
-        }
+		public void StopDiagnostics()
+		{
+			stopWatch.Stop();
+		}
 
-        public void PrintDiagnosticResultsFull(string context = "")
-        {
-            TimeSpan timespan = stopWatch.Elapsed;
+		public void PrintDiagnosticResultsFull(string context = "")
+		{
+			TimeSpan timespan = stopWatch.Elapsed;
 
-            string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                timespan.Hours, timespan.Minutes, timespan.Seconds,
-                timespan.Milliseconds / 10);
+			string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+				timespan.Hours, timespan.Minutes, timespan.Seconds,
+				timespan.Milliseconds / 10);
 
-            // Debug
-            Debug.Log(context + "[Runtime " + elapsedTime + ", Ticks: " + stopWatch.ElapsedTicks + "].");
-        }
+			// Debug
+			Debug.Log(context + "[Runtime " + elapsedTime + ", Ticks: " + stopWatch.ElapsedTicks + "].");
+		}
 
-        public void PrintDiagnosticResultsRuntime(string context = "")
-        {
-            TimeSpan timespan = stopWatch.Elapsed;
+		public void PrintDiagnosticResultsRuntime(string context = "")
+		{
+			TimeSpan timespan = stopWatch.Elapsed;
 
-            string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                timespan.Hours, timespan.Minutes, timespan.Seconds,
-                timespan.Milliseconds / 10);
+			string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+				timespan.Hours, timespan.Minutes, timespan.Seconds,
+				timespan.Milliseconds / 10);
 
-            // Debug
-            Debug.Log(context + "[Runtime " + elapsedTime + "].");
-        }
+			// Debug
+			Debug.Log(context + "[Runtime " + elapsedTime + "].");
+		}
 
-        public void PrintDiagnosticResultsTicks(string context = "")
-        {
-            // Debug
-            Debug.Log(context + "[Ticks " + stopWatch.ElapsedTicks + "].");
-        }
+		public void PrintDiagnosticResultsTicks(string context = "")
+		{
+			// Debug
+			Debug.Log(context + "[Ticks " + stopWatch.ElapsedTicks + "].");
+		}
 
-        #endregion
-        // =============================================
-    }
+		#endregion
+		// =============================================
+	}
 }

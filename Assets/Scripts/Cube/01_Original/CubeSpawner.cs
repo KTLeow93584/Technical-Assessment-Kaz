@@ -28,39 +28,37 @@ namespace Kurechii.Assessment.LeowKeanTat.Original
 		{
 			// =============================
 			// Diagnostics Begin - Spawn via Creation.
-			if (DiagnosticsManager.instance != null)
-				DiagnosticsManager.instance.StartDiagnostics();
+			//if (DiagnosticsManager.instance != null)
+			//	DiagnosticsManager.instance.StartDiagnostics();
 			// =============================
 			GameObject cube = Instantiate(cubePrefab, GetRandomPosition(), cubePrefab.transform.rotation);
 			cube.transform.SetParent(root.transform);
 			// =============================
 			// Diagnostics End.
-			if (DiagnosticsManager.instance != null)
-			{
-				DiagnosticsManager.instance.StopDiagnostics();
-				DiagnosticsManager.instance.PrintDiagnosticResultsTicks("[Original] Game Ticks Taken to Spawn Cube: ");
-			}
+			//if (DiagnosticsManager.instance != null)
+			//{
+			//	DiagnosticsManager.instance.StopDiagnostics();
+			//	DiagnosticsManager.instance.PrintDiagnosticResultsTicks("[Original] Game Ticks Taken to Spawn Cube: ");
+			//}
 			// =============================
 			// Due to this being a scheduled destruction, it is unreliable to use the stopwatch as the main load will only be performed on the frame after "x" duration.
 			// Profiler is the way to go here, however the difference between "Destroy" and "Deactivate via Pool" is in microseconds, it also can't be felt visibly via frame drop
 			// rates or any significant changes to the Profiler's time section.
-			//Destroy(cube, 5f);
+			Destroy(cube, .5f);
+			// =============================
+			// Diagnostics Begin - Despawn via Destroy.
+			//if (DiagnosticsManager.instance != null)
+			//	DiagnosticsManager.instance.StartDiagnostics();
 			// =============================
 			// Uncomment this for diagnostics purposes.
-			// Diagnostics Begin - Despawn via Destroy.
 			//Destroy(cube);
-
-			if (DiagnosticsManager.instance != null)
-				DiagnosticsManager.instance.StartDiagnostics();
-			// =============================
-			Destroy(cube);
 			// =============================
 			// Diagnostics End.
-			if (DiagnosticsManager.instance != null)
-			{
-				DiagnosticsManager.instance.StopDiagnostics();
-				DiagnosticsManager.instance.PrintDiagnosticResultsTicks("[Reworked] Game Ticks Taken to Deactivate Cube Instance: ");
-			}
+			//if (DiagnosticsManager.instance != null)
+			//{
+			//	DiagnosticsManager.instance.StopDiagnostics();
+			//	DiagnosticsManager.instance.PrintDiagnosticResultsTicks("[Reworked] Game Ticks Taken to Deactivate Cube Instance: ");
+			//}
 			// =============================
 		}
 
